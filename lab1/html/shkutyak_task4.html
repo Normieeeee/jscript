@@ -1,0 +1,32 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання №4</title>
+</head>
+<body>
+    <main>
+        <form id="form">
+            <input type="text" id="x" placeholder="Введіть значення x"><br>
+            <input type="text" id="y" placeholder="Введіть значення y"><br>
+            <input type="text" id="result" placeholder="Результат..."><br>
+            <input type="button" value = "Підрахувати" onClick = "calculate()">
+        </form>
+    </main>
+    <script>
+        function calculate(a) {
+            let x = parseInt(form.x.value);
+            let y = parseInt(form.y.value);
+            let result;
+
+            if(x != 0) {
+                result = x / y;
+            } else if (x != 0 || y > 3 / 2) {
+                result = x - y + x ** 2;
+            } else {
+                result = - (x ** 3) + 2 * y ** 2;
+            }
+            form.result.value = '' + result;
+        }
+    </script>
+</body>
+</html>

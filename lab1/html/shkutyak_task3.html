@@ -1,0 +1,27 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Завдання №3</title>
+</head> 
+<body>
+    <fieldset>
+        <p id="nvrmnd"></p>
+        <select id="Select" onchange="Change()" onfocus="Focus()">
+            <option value="Оберіть свою платформу">Оберіть свою платформу</option>
+            <option value="PC">PC</option>
+            <option value="Play Station">Play Station</option>
+            <option value="Xbox">Xbox</option>
+        </select>
+        <p id="probel"></p>
+    </fieldset>
+    <script>
+        function Change()   { 
+            let x = document.getElementById("Select").value;
+            document.getElementById("probel").innerHTML = "Ваша платформа: " + x;
+        }
+        function Focus()    {
+            document.getElementById("nvrmnd").innerHTML = "Обирайте";
+        }
+    </script>
+</body>
+</html>
