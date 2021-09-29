@@ -1,0 +1,63 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання №3</title>
+
+    <script>
+        let rows, columns;
+        function build_matrix() {
+        rows = parseInt(main_form.t_rows.value);
+        columns = parseInt(main_form.t_columns.value);
+        let res_rows = "<table>\n";
+        for(let i = 1; i <= rows; i++) {
+            res_rows+="<tr>\n";
+            for(let j = 1;j <= columns; j++) {
+                res_rows += "<td>";
+                res = i - j;
+                res_rows += "<input type = \"text\" id = \"_" + i + "_" + j + "\" value = \"" + res + "\">";
+                res_rows += "<\/td>\n";
+            }
+            res_rows+="<\/tr>\n";
+        }
+        res_rows += "<\/table>";
+        main_div.innerHTML = res_rows;
+        }
+
+        function calculate() {
+            let res_rows = "";
+            let result = "";
+            let sum = 0;
+            for(let i = 1; i <= rows; i++){
+                for(let j = 1; j <= columns; j++) {
+                res_rows = "sum += parseInt(main_form._" + i + "_" + j + ".value);";
+                eval(res_rows);
+                }
+            }
+            result += "Сумма всіх елементів дорівнює: " + sum + ";\n"
+            alert(result);
+        }
+    </script>
+
+</head>
+<body>
+    <form id = "main_form">
+        <table>
+          <tr>
+            <td>Введіть кількість рядків</td>
+            <td> <input type="text" id = "t_rows" value=""></td>
+          </tr>
+          <tr>
+            <td>Введіть кількість стовпців</td>
+            <td><input type="text" id = "t_columns" value=""></td>
+          </tr>
+          <tr>
+            <td> <input type = "button" onClick = "build_matrix();" value = "Побудувати матрицю"><br> <td>
+          </tr>
+          <tr>
+            <td> <input type = "button" onClick = "calculate();" value = "Розрахувати cуму елементів"> <td>
+          </tr>
+        </table>
+        <div id = "main_div"></div>
+    </form>
+</body>
+</html>

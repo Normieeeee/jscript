@@ -1,0 +1,35 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання №1</title>
+    <script Language="JavaScript">
+        var timeStr, dateStr;
+        function clock() {
+            now = new Date();
+            hours = now.getHours();
+            minutes = now.getMinutes();
+            seconds = now.getSeconds();
+            timeStr = ((hours < 10) ? "0" : "") + hours;
+            timeStr += ((minutes < 10) ? ":0" : ":") + minutes;
+            timeStr += ((seconds < 10) ? ":0" : ":") + seconds;
+            year = now.getYear() + 1900;
+            date = now.getDate();
+            month = now.getMonth() + 1;
+            dateStr = "" + year;
+            dateStr += ((month < 10) ? ":0" : ":") + month;
+            dateStr += ((date < 10) ? ":0" : ":") + date;
+            timeStr += "-" + dateStr;
+            document.clock.date.value = timeStr; 
+            Timer = setTimeout("clock()", 1000);
+        }
+    </script>
+</head>
+<body onLoad="clock()">
+    <div class="form">
+    <form name="clock">
+        <input type="text" name="date" size="16" value="">
+    </form>
+    </div>
+</body>
+</html>
+<html>
