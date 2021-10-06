@@ -1,0 +1,59 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання №3</title>
+</head>
+<body onload="Keyboard()">
+
+    <div class="main_block">
+        <textarea id="screenKeyboard" rows="5" cols="100" readonly></textarea>
+        <button class="resetButton" onclick="reset()">Очистити поле</button>
+        <div id="keyboard">
+    
+        </div>
+    </div>
+    
+    <script>
+        const uaKeys = ["а", "б", "в", "г", "ґ", "д", "е", "є", "ж", "з", "и", "і", "ї", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ь", "ю", "я"];
+        const engKeys = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
+        Keyboard = () => {
+        let keyboard = "";
+        language = document.documentElement.lang;
+        if (language === "ua") {
+            uaKeys.map((key, index) => {
+                if (index % 12 === 0) keyboard += "<br>";
+                keyboard += `<button onclick="addkey('${key}')">${key}</button>`;
+            })
+        } else {
+            engKeys.map((key, index) => {
+                if (index % 12 === 0) keyboard += "<br>";
+                keyboard += `<button onclick="addkey('${key}')">${key}</button>`;
+            })
+        }
+        keyboard += `<button onclick="addkey(' ')">Space</button>`;
+        keyboard += `<button onclick="changeLanguage()">Alt+Shift</button>`;
+        document.getElementById("keyboard").innerHTML = keyboard;
+        }
+
+        addkey = (key) => {
+            document.getElementById("screenKeyboard").value += key;
+        }
+
+        reset = () => {
+            document.getElementById("screenKeyboard").value = "";
+        }
+
+        changeLanguage = () => {
+            currentLang = document.documentElement.lang;
+            if (currentLang === "ua") {
+                document.documentElement.setAttribute('lang', "eng");
+            } else {
+                document.documentElement.setAttribute('lang', "ua");
+            }
+            Keyboard();
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання №4</title>
+</head>
+<body onload="phts()">
+
+    <script>
+        const imgs = ["cattie.jpg", "cattie2.jpg", "cattie3.jpg", "cattie4.jpg", "cattie5.jpg", "cattie6.jpg"];
+        const folder = "img/";
+        let photoIndex = 0;
+
+        function phts() {
+            if (photoIndex > imgs.length - 1) {
+                photoIndex = 1;
+            }
+            if (photoIndex < 0) {
+                photoIndex = imgs.length - 1;
+            }
+            swap = document.getElementById("swap");
+            swap.innerHTML = `<img src=${folder + imgs[photoIndex]}>`
+        }
+
+        function nextPhoto() {
+            phts(photoIndex += 1);
+        }
+
+        function previousPhoto() {
+            phts(photoIndex -= 1);
+        }
+    </script>
+
+<div id="swap">
+</div>
+<button class="previous" onclick="previousPhoto()">Попередня</button>
+<button class="next" onclick="nextPhoto()">Наступна</button>
+
+    <style>
+        body{
+            background-color: lightgray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        img{
+            height: 800px;
+        }
+    </style>
+
+</body>
+</html>

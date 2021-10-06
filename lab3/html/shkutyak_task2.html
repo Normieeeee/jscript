@@ -1,0 +1,40 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання №2</title>
+</head>
+<body onload="Keyboard()">
+
+    <div class="main_block">
+        <textarea id="screenKeyboard" rows="5" cols="100" readonly></textarea>
+        <button class="resetButton" onclick="reset()">Очистити поле</button>
+        <div id="keyboard">
+    
+        </div>
+    </div>
+
+    <script>
+        const Keys = ["а", "б", "в", "г", "ґ", "д", "е", "є", "ж", "з", "и", "і", "ї", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ь", "ю", "я"];
+
+        Keyboard = () => {
+        let keyboard = "";
+        Keys.map((key,index) => {
+            if(index % 12 === 0) keyboard += "<br>"
+            keyboard += `<button onclick="addKey('${key}')">${key}</button>`
+        })
+
+        keyboard += `<button onclick="addKey(' ')">Space</button>`
+        document.getElementById("keyboard").innerHTML = keyboard;
+        }
+
+        addKey = (key) => {
+        document.getElementById("screenKeyboard").value += key;
+        }
+
+        reset = () => {
+        document.getElementById("screenKeyboard").value = "";
+        }
+    </script>
+
+</body>
+</html>

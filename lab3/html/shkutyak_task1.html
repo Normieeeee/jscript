@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання №1</title>
+</head>
+<body>
+
+    <script>
+        function calc() {
+            let width = +document.getElementById('width').value;
+            let length = +document.getElementById('length').value;
+            
+            let perimeter = width * 2 + length * 2;
+            let square = length * width;
+            let diagonal = (length ** 2 + width ** 2) ** 0.5;
+
+            document.getElementById("perimeter").innerText = perimeter;
+            document.getElementById("square").innerText = square;
+            document.getElementById("diagonal").innerText = diagonal;
+        }
+    </script>
+    
+    <div class="form">
+        <form id="main_form">
+            <table cellspacing="0px" cellpadding="5pt">
+                <tr>
+                    <td>Введіть ширину прямокутника:</td>
+                    <td> <input type="text" id="width" onChange="calc()"></td>
+                </tr>
+                <tr>
+                    <td>Введіть довжину прямокутника:</td>
+                    <td><input type="text" id="length" onChange="calc()"></td>
+                </tr>
+                <div>
+                    <span>Периметр даного прямокутника:</span>
+                    <span id="perimeter"></span>
+                </div>
+                <div>
+                    <span>Площа даного прямокутника:</span>
+                    <span id="square"></span>
+                </div>
+                <div>
+                    <span>Довжина діагоналі даного прямокутника:</span>
+                    <span id="diagonal"></span>
+                </div>
+            </table>
+        </form>
+    </div>
+
+</body>
+</html>
