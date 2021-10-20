@@ -1,0 +1,104 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання №1</title>
+</head>
+
+<body>
+    <div class="form">
+        <h1>Random Quiz</h1>
+        <form>
+            <p>1. Продовжите числовий ряд: 24, 21, 19, 18, 15, 13, 12...<br><br>
+                <input type="radio" name="row" value="1">
+                <label>11</label>
+                <br>
+                <input type="radio" name="row" value="2">
+                <label>10</label>
+                <br>
+                <input type="radio" name="row" value="3">
+                <label>9</label>
+                <br>
+                <input type="radio" name="row" value="4">
+                <label>8</label>
+            </p>
+            <p>2. У якому столітті Колумб вперше досяг берегів Америки?<br><br>
+                <input type="radio" name="columbus" value="1">
+                <label>XIV</label>
+                <br>
+                <input type="radio" name="columbus" value="2">
+                <label>XV</label>
+                <br>
+                <input type="radio" name="columbus" value="3">
+                <label>XVI</label>
+                <br>
+                <input type="radio" name="columbus" value="4">
+                <label>XVII</label>
+            </p>
+            <p>3. Квадратний корінь із числа 9 може дорівнювати:<br><br>
+                <input type="checkbox" name="numbers" value="1">
+                <label>9</label>
+                <br>
+                <input type="checkbox" name="numbers" value="2">
+                <label>3</label>
+                <br>
+                <input type="checkbox" name="numbers" value="3">
+                <label>-9</label>
+                <br>
+                <input type="checkbox" name="numbers" value="4">
+                <label>-3</label>
+                <br>
+            </p>
+            <p>4. Виберіть акторів, які прийняли участь у зйомці фільму "Дюна"<br><br>
+                <input type="checkbox" name="peninsula" value="1">
+                <label>Тімоті Шаламе</label>
+                <br>
+                <input type="checkbox" name="peninsula" value="2">
+                <label>Том Харді</label>
+                <br>
+                <input type="checkbox" name="peninsula" value="3">
+                <label>Кілліан Мерфі</label>
+                <br>
+                <input type="checkbox" name="peninsula" value="4">
+                <label>Зендея</label>
+                <br>
+            </p>
+            <p>5. Сплав складається з двох частин срібла та трьох частин олова. Скільки грамів олова потрібно для одержання 15г сплаву?</p>
+            <input type="number" id="task5" min="1" max="15">
+            <p>6. Верховний бог в германо-скандинавській міфології, батько і ватажок асів, син Бора і Бестлі, онук Бурі?</p>
+            <input type="text" id="task6">
+            <br><br>
+            <p>
+                <input type="button" id="calc" onclick="checkTest()" value="Підтвердити">
+            </p>
+            <br> 
+            Ваш результат: <input type="text" id="result" readonly>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        function checkTest() {
+            let t1 = document.getElementsByName('row');
+            let t2 = document.getElementsByName('columbus');
+            let t3 = document.getElementsByName('numbers');
+            let t4 = document.getElementsByName('peninsula');
+            let result = 0;
+            for (let i = 0; i < t1.length; i++) {
+                if (t1[i].checked && t1[i].value === '3') result++;
+            }
+            for (let i = 0; i < t2.length; i++) {
+                if (t2[i].checked && t2[i].value === '2') result++;
+            }
+            for (let i = 0; i < t3.length; i++) {
+                if (t3[i].checked && (t3[i].value === '2' || t3[i].value === '4')) result++;
+            }
+            for (let i = 0; i < t4.length; i++) {
+                if (t4[i].checked && (t4[i].value === '1' || t4[i].value === '4')) result++;
+            }
+            if (document.getElementById("task5").value === "9") result++;
+            if (document.getElementById("task6").value === "Одін") result++;
+            document.getElementById('result').value = result;
+        };
+    </script>
+
+</body>
+</html>
