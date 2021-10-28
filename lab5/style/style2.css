@@ -1,0 +1,45 @@
+body {
+    background-image:url(../img/bg.jpg);
+    font-family: Arial;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+h1, h3 , p{
+    text-align: center;
+    color: burlywood;
+}
+.cards {
+    display: flex;
+    justify-content: space-around;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+.card img {
+    width: 300px;
+}
+.active {
+    border-radius: 10px;
+}
+.active img {
+    display: flex;
+    border: 2px solid rgb(175, 22, 175);
+    width: 350px;
+}
+.active h3 {
+    color: rgb(240, 236, 45);
+}
+.content {
+    display: none;
+    text-align: center;
+    font-weight: bold;
+}
+.description {
+    margin-top: 30px;
+}

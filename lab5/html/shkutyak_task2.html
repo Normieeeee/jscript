@@ -1,0 +1,67 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання №2</title>
+    <link rel="stylesheet" type="text/css" href="../style/style2.css">
+</head>
+
+<body>
+
+    <main>
+        <h1 class="title">Мої одногрупники</h1>
+        <div class="cards">
+            <div class="card" onclick="contentSwitch(event, 'content1')">
+                 <img src="../img/1.jpg">
+                 <h3>Ру Беннет</h3>
+            </div>
+ 
+            <div class="card" onclick="contentSwitch(event, 'content2')">
+                 <img src="../img/2.jpg">
+                 <h3>Джулс Вон</h3>
+            </div>
+ 
+            <div class="card" onclick="contentSwitch(event, 'content3')">
+                 <img src="../img/3.jpg">
+                 <h3>Феско</h3>
+            </div>
+ 
+            <div class="card" onclick="contentSwitch(event, 'content4')">
+                 <img src="../img/4.jpg">
+                 <h3>Алі</h3>
+            </div>
+        </div>
+ 
+        <div class="description">
+           <div id="content1" class="content">
+                <p>17-річна наркоманка, яка намагається знайти своє місце у світі.</p>
+           </div>
+ 
+           <div id="content2" class="content">
+                <p>Трансгендерна дівчина, яка знайомиться з Ру після переїзду до міста.</p>
+           </div>
+ 
+           <div id="content3" class="content">
+                <p>Місцевий наркоторговець, близький друг Ру.</p>
+           </div>
+ 
+           <div  id="content4" class="content">
+                <p>Колишній наркоман, який часто виступає на зборах анонімних наркоманів.</p>
+           </div>
+        </div>
+     </main>
+
+<script>
+    function contentSwitch(event, content_id) {
+    for (let tab of document.getElementsByClassName('card'))
+        tab.classList.remove("active"); 
+
+    for (let description of document.getElementsByClassName('content'))
+        description.style.display = 'none';
+
+    event.currentTarget.classList.add('active');
+    document.getElementById(content_id).style.display = 'block';
+}
+</script>
+
+</body>
+</html>
