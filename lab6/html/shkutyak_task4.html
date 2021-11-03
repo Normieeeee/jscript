@@ -1,0 +1,75 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання №3</title>
+    <link rel="stylesheet" type="text/css" href="../style/style.css">
+</head>
+
+<body>
+        <div class="task">
+            <h2>Вивести задану послідовність чисел в оберненому порядку</h2>
+            <input type="text" id="task1">
+            <button onclick="task_1()">Вивести результат</button>
+            <h3 id="result1"></h3>
+        </div>
+        <div class="task">
+            <h2>Вивести модифікований масив, який не містить нульових значень</h2>
+            <input type="text" id="task2">
+            <button onclick="task_2()">Вивести результат</button>
+            <h3 id="result2"></h3>
+        </div>
+        <div class="task">
+            <h2>Вивести рядок у протилежному порядку</h2>
+            <input type="text" id="task3">
+            <button onclick="task_3()">Вивести результат</button>
+            <h3 id="result3"></h3>
+        </div>
+        <div class="task">
+            <h2>«Я не люблю морозиво»</h2>
+            <input type="text" id="task4">
+            <button onclick="task_4()">Вивести результат</button>
+            <h3 id="result4"></h3>
+        </div>
+    <script>
+function task_1() {
+    let text = task1.value;
+    let result = text.split(' ').reverse().join(' ');
+    document.getElementById("result1").innerText = result;
+}
+
+function task_2() {
+    let text = task2.value;
+    let result = no_zeros(text);
+    document.getElementById("result2").innerText = result;
+}
+function no_zeros(string) {
+    regex = /^0|([^1-9])0$|([^0-9])0/g;
+    return string.replace(regex, ' ');
+}
+
+function task_3() {
+    let text = task3.value;
+    let result = reverser(text);
+    document.getElementById("result3").innerText = result;
+}
+function reverser(string) {
+    return string.split('').reverse().join('');
+}
+
+function task_4() {
+    let text = task4.value;
+    result = replacer(text);
+    document.getElementById("result4").innerText = result;
+}
+function replacer(string) {
+    let splitedText = string.split(' ');
+    if(splitedText[1] != null && splitedText[2] != null) {
+        let temp = splitedText[1];
+        splitedText[1] = splitedText[2];
+        splitedText[2] = temp;
+    }
+    return splitedText.join(',');
+}
+    </script>
+</body>
+</html>

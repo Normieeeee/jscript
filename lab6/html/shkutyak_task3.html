@@ -1,0 +1,109 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання №2.2</title>
+    <link rel="stylesheet" type="text/css" href="../style/style.css">
+</head>
+
+<body onsubmit="validateForm(event)">
+        <form id="form">
+            <div class="group">
+                <div class="field">
+                    <label for="first_name">Ім'я</label>
+                    <input type="text" id="first_name" placeholder="Ім'я">
+                </div>
+                <span id="first_name_message"></span>
+            </div>
+
+            <div class="group">
+                <div class="field">
+                    <label for="last_name">Прізвище</label>
+                    <input type="text" id="last_name" placeholder="Прізвище">
+                </div>
+                <span id="last_name_message"></span>
+            </div>
+    
+            <div class="group">
+                <div class="field">
+                    <label for="login">Логін</label>
+                    <input type="text" id="login" placeholder="Логін">
+                </div>
+                <span id="login_message"></span>
+            </div>
+    
+            <div class="group">
+                <div class="field">
+                    <label for="password">Пароль</label>
+                    <input type="text" id="password" placeholder="Пароль">
+                </div>
+                <span id="password_message"></span>
+            </div>
+    
+            <div class="group">
+                <div class="field">
+                    <label for="post_index">Поштовий індекс</label>
+                    <input type="text" id="post_index" placeholder="Поштовий індекс">
+                </div>
+                <span id="post_index_message"></span>
+            </div>
+    
+            <div class="group">
+                <div class="field">
+                    <label for="email">Електронна пошта</label>
+                    <input type="text" id="email" placeholder="Електоронна пошта">
+                </div>
+                <span id="email_message"></span>
+            </div>
+    
+            <button type="submit">Відправити</button>
+        </form>
+
+    <script>
+        const nameRegex = /^([A-ZА-ЩЬЮЯҐЄІЇ])+([a-zа-щьюяґєії]+)$/;
+const postIndexRegex = /^([0-9]){5}$/;
+const loginRegex = /^([a-zA-Z\-])+$/;
+const passwordRegex = /^(?=.*\d)(?=.*[a-z])[0-9a-zA-Z]{6,}$/;
+const emailRegex = /^([a-z0-9]+)([\.\_][a-z0-9]+)*@([a-z0-9]+)(\.[a-z0-9]+)*$/i;
+let isValid = true;
+
+const messages = {
+    "first_name": "Ім’я повинно складатися з літер: перша літера велика, наступні маленькі, дозволено кирилиця і латина.",
+    "last_name": "Прізвище повинно складатися з літер: перша літера велика, наступні маленькі, дозволено кирилиця і латина.",
+    "login": "Логін повинен складатися тільки з латинських літер",
+    "password": "Пароль повинен складатися мінімум з 6 символів, з яких мінімум по 1 букві і цифрі",
+    "post_index": "Поштовий індекс повинен складатися з 5 цифр",
+    "email": "Електронна пошта повиненна містити '@' та відповідну структуру"
+};
+
+function validateField(fieldId, fieldRegex){
+    let field = document.getElementById(fieldId);
+    let fieldValue = field.value;
+    let fieldTest = fieldRegex.test(fieldValue);
+
+    let message = document.getElementById(fieldId + "_message");
+    
+    if(fieldTest) {
+        message.innerHTML = `<img src="../img/1.png">`;
+        isValid = true ? isValid : false;
+    } else {
+        message.innerText = messages[fieldId];
+        isValid = false;
+    }
+}
+
+function validateForm(event) {
+    isValid = true;
+    event.preventDefault();
+    validateField("first_name", nameRegex);
+    validateField("last_name", nameRegex);
+    validateField("login", loginRegex);
+    validateField("password", passwordRegex);
+    validateField("post_index", postIndexRegex);
+    validateField("email", emailRegex);
+    if(isValid) {
+        form.submit()
+    }
+}
+    </script>
+</body>
+</html>
