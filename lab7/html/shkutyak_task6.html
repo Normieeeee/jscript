@@ -1,0 +1,35 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання №3.3</title>
+    <script type="text/javascript" src="../jscript/jquery-3.4.1.min.js"> </script>
+    <link rel="stylesheet" type="text/css" href="../style/style4.css">
+</head>
+
+<body>
+    <script>
+        $(document).ready(() => {
+            $("#Label").bind("click", () => {
+                $("#Image").show();
+            });
+            $("#Image").bind("click", () => {
+                $("#Image").hide();
+            });
+
+            $("#Image").bind("mouseover",() => {
+                $('#pop').toggle();
+            });
+            $("#Image").bind("mouseout",() => {
+                $('#pop').toggle();
+            });
+        });
+    </script>
+    <div class="main_block">
+        <h4 id="Label">Показати зображення</h4>
+        <img id="Image" src="../img/1.jpg" alt="Pnu" hidden>
+        <div id="pop">
+            <p>XO Tour Llif3</p>
+        </div>
+    </div>
+</body>
+</html>

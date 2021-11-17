@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання №3.4</title>
+    <script type="text/javascript" src="../jscript/jquery-3.4.1.min.js"> </script>
+    <link rel="stylesheet" type="text/css" href="../style/style5.css">
+</head>
+
+<body>
+    <div class="main_block">
+        <form action="javascript:alert('Успішно!');">
+            <h3>Введіть в текстове поле слово 'correct'</h3>
+            <input type="text" id="number">
+            <input type="submit" value="Підтвердити">
+        </form>
+        <span></span>
+    </div>
+    <script>
+        $("form").submit(function() {
+            if ($("input:first").val() == "correct") {
+                $("span").text("Перевіряєм...").show().fadeOut(1000);
+                return true;
+            }
+            $("span").text("Неправильно!").show().fadeOut(1000);
+            return false;
+        });
+    </script>
+</body>
+</html>

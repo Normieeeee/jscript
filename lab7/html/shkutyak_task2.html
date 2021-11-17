@@ -1,0 +1,23 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання №2.1</title>
+    <script type="text/javascript" src="../jscript/jquery-3.4.1.min.js"> </script>
+</head>
+
+<body>
+    <script> 
+        $(document).ready(function () {
+            $('.button').click(function () {
+                $("p:first").text("DOM first!");
+                $("p:last").text("DOM last!");
+            });
+        });
+    </script>
+    <h1> Контент сторінки </h1>
+    <a href = "#" class = "button"> Натисніть, щоб показати текст </a>
+    <p></p>
+    <p>Демонстраційний текст</p>
+    <p></p>
+</body>
+</html>

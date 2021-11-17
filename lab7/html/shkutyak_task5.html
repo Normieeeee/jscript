@@ -1,0 +1,28 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання №3.2</title>
+    <script type="text/javascript" src="../jscript/jquery-3.4.1.min.js"> </script>
+    <link rel="stylesheet" href="../style/style3.css">
+</head>
+
+<body>
+    <script> 
+        $(document).ready(function () {
+            $('#1click').bind("click", function () {
+                alert("Одинарний клік");
+            });
+            $('#2click').bind("dblclick", function () {
+                alert("Подвійний клік");
+            });
+        });
+    </script>
+    <div class="form">
+            <input type="button" value="Клінкніть 1 раз" id="1click">
+            <p></p>
+            <p></p>
+            <p></p>
+            <input type="button" value="Клінкніть двічі" id="2click">
+    </div>
+</body>
+</html>
