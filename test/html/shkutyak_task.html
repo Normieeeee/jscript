@@ -1,0 +1,129 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання</title>
+    <link rel="stylesheet" type="text/css" href="../style/style.css">
+</head>
+
+<body onsubmit="validateForm(event)">
+        <form id="form">
+            <div class="group1">
+                <div class="select">
+                    <label for="vklad">Назва вкладу</label>
+                    <select name="Назва вкладу">
+                        <option>Гостинний</option>
+                        <option>Прибутковий</option>
+                        <option>Стабільний</option>
+                        <option>Зростаючий</option>
+                        <option>Динамічний</option>
+                       </select>
+                </div>
+                <span>*</span>
+                <span id="vklad_message"></span>
+            </div>
+
+            <div class="group1">
+                <div class="field">
+                    <label for="name">ПІБ</label>
+                    <input type="text" id="name" placeholder="ПІБ">
+                </div>
+                <span>*</span>
+                <span id="name_message"></span>
+            </div>
+
+            <div class="group1">
+                <div class="field">
+                    <label for="email">Електронна пошта</label>
+                    <input type="text" id="email" placeholder="Електронна пошта">
+                </div>
+                <span>*</span>
+                <span id="email_message"></span>
+            </div>
+    
+            <div class="group1">
+                <div class="field">
+                    <label for="phone">Номер телефону</label>
+                    <input type="text" id="phone" placeholder="Номер телефону">
+                </div>
+                <span>*</span>
+                <span id="phone_message"></span>
+            </div>
+    
+            <div class="group2">
+                <div class="field">
+                    <label for="date">Дата закриття вкладу</label>
+                    <input type="text" id="date" placeholder="Дата">
+                </div>
+                <span id="date_message"></span>
+            </div>
+    
+            <div class="group2">
+                <div class="field">
+                    <label for="number">Номер рахунку</label>
+                    <input type="text" id="number" placeholder="Номер">
+                </div>
+                <span id="number_message"></span>
+            </div>
+
+            <div class="group3">
+                <div id="checkbox" class="checkbox">
+                    <label for="features">Можливості вкладу</label>
+                    <div>
+                    <input type="checkbox" id="1" value="1">
+                    <label for="1">Можливість дострокового розірвання</label>
+                    </div>
+                    <div>
+                    <input type="checkbox" id="2" value="2">
+                    <label for="2">Можливість часткового зняття</label>
+                    </div>
+                    <div>
+                    <input type="checkbox" id="3" value="3">
+                    <label for="3">Автоматичне поповнення</label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">Відправити</button>
+        </form>
+
+    <script>
+        const nameRegex = /^([A-ZА-ЩЬЮЯҐЄІЇ])+([a-zа-щьюяґєії]+)* ([A-ZА-ЩЬЮЯҐЄІЇ])+([a-zа-щьюяґєії]+)* ([A-ZА-ЩЬЮЯҐЄІЇ])+([a-zа-щьюяґєії]+)$/;
+        const emailRegex = /^([a-z0-9]+)([\.\_][a-z0-9]+)*@([a-z0-9]+)(\.[a-z0-9]+)*$/i;
+        const phoneRegex = /^[+]380[0-9]{9}$/;
+        let isValid = true;
+
+const messages = {
+    "name": "ПІБ повинно складатися з трьох слів: перші літери великі, наступні маленькі, дозволено кирилиця і латина.",
+    "email": "Електронна пошта повиненна містити '@' та відповідну структуру",
+    "phone": "Міжнародний формат українського номеру: +380665986085",
+};
+
+function validateField(fieldId, fieldRegex){
+    let field = document.getElementById(fieldId);
+    let fieldValue = field.value;
+    let fieldTest = fieldRegex.test(fieldValue);
+
+    let message = document.getElementById(fieldId + "_message");
+    
+    if(fieldTest) {
+        message.innerHTML = `<img src="../img/1.png">`;
+        isValid = true ? isValid : false;
+    } else {
+        message.innerText = messages[fieldId];
+        isValid = false;
+    }
+}
+
+function validateForm(event) {
+    isValid = true;
+    event.preventDefault();
+    validateField("name", nameRegex);
+    validateField("email", emailRegex);
+    validateField("phone", phoneRegex);
+    if(isValid) {
+        form.submit()
+    }
+}
+    </script>
+</body>
+</html>
